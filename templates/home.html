@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Home</title>
+    <style>
+        /* h1 {
+            font-size: 40px;
+            font-family: Roboto;
+            font-weight: normal;
+            color: rgb(100, 100, 100);
+            text-align: center;
+        } */
+
+        #banner {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+        }
+/* 
+        h2 {
+            font-family: Roboto;
+            font-size: 32px;
+            color: rgb(100, 100, 100);
+            text-align: center;
+            font-weight: normal;
+        }
+
+        p {
+            font-family: Roboto;
+            color: rgb(80, 80, 80);
+
+        }
+
+        #container {
+            max-width: 720px;
+            margin: 0 auto 0 auto;
+
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4"> {{company_name}} Careers</h1>
+        <img id="banner" src="static/banner.jpg">
+
+        <h2 class="text-center mt-2 mb-4">About Rish</h2>
+        <p class = "lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestiae velit accusantium, modi culpa natus
+            labore numquam! Minus at voluptate ullam obcaecati eveniet illum, in aspernatur molestias aliquam
+            necessitatibus
+            numquam modi fugiat amet, maxime vitae sit velit alias cum explicabo vero quasi. Veniam enim molestias
+            temporibus quis culpa dolorum iste accusantium, voluptatum itaque voluptates, quo nemo totam neque!
+        </p>
+
+        <h2 class="text-center mt-2 mb-4"> Open Positions</h2>
+
+        <!-- using flask templating syntax to add dynamic data to the webpage, this can later be fetched from the database -->
+        <div>
+            {% for job in jobs %}
+                <div>
+                    <h4>{{job['title']}}</h4>
+                    <div>Location : {{job['location']}}</div>
+                </div>
+            {%endfor%}
+        </div>
+
+        <div class = "mt-2 mb-4" style="text-align: center"> 
+            <button class="text-center btn btn-primary btn-lg">Contact Us</button>
+        </div>
+        
+    </div>
+</body>
+
+</html>
