@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 # an app is simply an object of the class Flask
 app = Flask(__name__)
@@ -26,8 +26,7 @@ JOBS = [
     {
         'id' : 4,
         'title' : 'Frontend Engineer',
-        'location' : 'San Francisco',
-        'salary' : '$120,000'
+        'location' : 'San Francisco'
     }
 ]
 
@@ -37,6 +36,10 @@ def hello_rish():
     return render_template("home.html", 
                            jobs = JOBS, 
                            company_name = "Rish")
+
+@app.route("/api/jobs")
+def list_jobs():
+    return jsonify(JOBS)
 
 if __name__ == '__main__':
     app.run(host = "0.0.0.0", debug=True)

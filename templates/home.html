@@ -63,10 +63,7 @@
         <!-- using flask templating syntax to add dynamic data to the webpage, this can later be fetched from the database -->
         <div>
             {% for job in jobs %}
-                <div>
-                    <h4>{{job['title']}}</h4>
-                    <div>Location : {{job['location']}}</div>
-                </div>
+                {% include 'jobitem.html' %}    
             {%endfor%}
         </div>
 
